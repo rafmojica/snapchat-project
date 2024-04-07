@@ -23,20 +23,76 @@
  * 
  */
 
+let albums;
 
-const FRESH_PRINCE_URL = "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL = "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL = "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+async function renderAlbums(filter) {
+    const albumsWrapper = document.querySelector('.all__albums');
 
-// This is an array of strings (TV show titles)
-let titles = [
-    "Fresh Prince of Bel Air",
-    "Curb Your Enthusiasm",
-    "East Los High"
-];
-// Your final submission should have much more data than this, and 
-// you should use more than just an array of strings to store it all.
+    albumsWrapper.classList += ' albums__loading'
+    if (!albums) {
+        albums = await getAlbums();
+    }
+    albumsWrapper.classList.remove('albums__loading');
+}
 
+setTimeout(() => {
+    renderAlbums();
+});
+
+// Fake data set 
+function getAlbums() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve([
+          {
+            id: 1,
+            album: "Kid A",
+            cover: "assets/Kid A.jpg",
+            artist: "Radiohead",
+            year: "2000",
+            genre: ["Art Rock", "Electronic"],
+            rating: 5,
+          },
+          {
+            id: 2,
+            album: "Loveless",
+            cover: "assets/Loveless.jpg",
+            artist: "my bloody valentine",
+            year: "1991",
+            genre: ["Shoegaze", "Noise Pop"],
+            rating: 4.5,
+          },
+          {
+            id: 3,
+            album: "Heaven or Las Vegas",
+            cover: "assets/Heaven or Las Vegas.jpg",
+            artist: "Cocteau Twins",
+            year: "1990",
+            genre: "Dream Pop",
+            rating: 4,
+          },
+          {
+            id: 4,
+            album: "The Queen Is Dead",
+            cover: "assets/The Queen Is Dead.jpg",
+            artist: "The Smiths",
+            year: "1986",
+            genre: ["Jangle Pop", "Indie Pop"],
+            rating: 4,
+          },
+          {
+            id: 5,
+            album: "Wish You Were Here",
+            cover: "assets/Wish You Were Here.png",
+            artist: "Pink Floyd",
+            year: "1975",
+            genre: ["Progressive Rock", "Art Rock"],
+            rating: 4.5,
+          },
+        ])
+      }, 2000);
+    })
+  }
 
 // This function adds cards the page to display the data in the array
 function showCards() {

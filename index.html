@@ -1,40 +1,66 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles">
+  <head>
+    <title>Best Albums</title>
+    <meta name="description" content="A catalog of critically acclaimed music" />
     <link rel="stylesheet" href="style.css" />
     <script type="text/javascript" src="scripts.js"></script>
-</head>
+  </head>
 
-<body>
-    <header class="main-header">
-        <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container">
-        testing
-        
-    </div>
-    <div class="card" style="display: none;">
-        <div class="card-content">
-            <h2>TV Show Title</h2>
-            <img src="" alt="TV Show Poster">
-            <ul>
-                <li>Bullet Point 1</li>
-                <li>Bullet Point 2</li>
-                <li>Bullet Point 3</li>
-            </ul>
+  <body>
+    <nav class="navbar">
+      <ul class="navbar__items">
+        <div class="navbar__item--left">
+          <li class="navbar__item--title">Groove Gallery</li>
         </div>
+        <div class="navbar__item--right">
+          <li class="navbar__item">Albums</li>
+          <li class="navbar__item">Artists</li>
+          <li class="navbar__item">Genres</li>
+        </div>
+      </ul>
+    </nav>
+    <div class="albums__wrapper">
+      <div class="album__card">
+        <div class="album__card--content">
+          <h2>Best Album</h2>
+          <img src="" alt="Album Cover" />
+          <h3>by album.artist</h3>
+          <ul>
+            <li>album.year</li>
+            <li>album.genre</li>
+            <li>album.rating</li>
+          </ul>
+        </div>
+      </div>
+      <div class="album__card">
+        <div class="album__card--content">
+          <h2>Best Album</h2>
+          <img src="" alt="Album Cover" />
+          <h3>by album.artist</h3>
+          <ul>
+            <li>album.year</li>
+            <li>album.genre</li>
+            <li>album.rating</li>
+          </ul>
+        </div>
+      </div>
+      <div class="album__card">
+        <div class="album__card--content">
+          <h2>Best Album</h2>
+          <img src="" alt="Album Cover" />
+          <h3>by album.artist</h3>
+          <ul>
+            <li>album.year</li>
+            <li>album.genre</li>
+            <li>album.rating</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="footer">
-        <button onclick="quoteAlert();">
-            Get A Quote!
-        </button>
-        <button onclick="removeLastCard();">
-            Remove A Card!
-        </button>
+      <button onclick="quoteAlert();">Get A Quote!</button>
+      <button onclick="removeLastCard();">Remove A Card!</button>
     </div>
-</body>
-
+  </body>
 </html>

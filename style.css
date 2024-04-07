@@ -1,30 +1,69 @@
-html,
-body {
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Mukta", sans-serif;
 }
 
-.main-header {
+ul {
+    list-style-type: none;
+}
+
+.navbar {
     background-color: rgba(0, 0, 0, .3);
-    padding-bottom: 10px;
+    border-radius: 16px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 8px auto;
+    padding: 0 24px;
+}
+
+.navbar__item--title {
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.navbar__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+
+.navbar__item--right {
+    display: flex;
+}
+
+.navbar__item {
+    margin-left: 32px;
+}
+
+.navbar__item:hover {
+    cursor: pointer;
 }
 
 .title {
     text-align: center;
-    margin: 0;
+    padding: 8px 0;
     font-size: 8em;
     font-family: "Helvetica";
     font-weight: normal;
     color: white;
 }
 
-#card-container {
+.albums__wrapper {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    margin: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 8px auto;
+    padding: 0 24px;
 }
 
-.card {
+.album__card {
     width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -32,18 +71,18 @@ body {
     margin: 5px;
 }
 
-.card-content {
+.album__card--content {
     padding: 20px;
     font-family: "Verdana";
     color: #777;
 }
 
-.card-content h2 {
+.album__card--content h2 {
     margin-top: 0;
     font-size: 20px;
 }
 
-.card img {
+.album__card img {
     width: 100%;
     height: auto;
 }
