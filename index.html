@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Best Albums</title>
-    <meta name="description" content="A catalog of critically acclaimed music" />
+    <title>Groove Gallery</title>
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/270/270183.png"
+    />
+    <meta
+      name="description"
+      content="A catalog of critically acclaimed music"
+    />
     <link rel="stylesheet" href="style.css" />
-    <script src="https://kit.fontawesome.com/fd56eb3ace.js" crossorigin="anonymous"></script>
-    <script defer src="scripts.js"></script>
+    <script
+      src="https://kit.fontawesome.com/fd56eb3ace.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="./index.js"></script>
   </head>
 
   <body>
     <nav class="navbar">
       <ul class="navbar__items">
         <div class="navbar__item--left">
+          <img
+            class="logo"
+            src="https://cdn-icons-png.flaticon.com/512/270/270183.png"
+            alt="Logo"
+          />
           <li class="navbar__item--title">Groove Gallery</li>
         </div>
         <div class="navbar__item--right">
           <li class="navbar__item">Albums</li>
-          <li class="navbar__item">Artists</li>
-          <li class="navbar__item">Genres</li>
+          <a href="artists.html"><li class="navbar__item">Artists</li></a>
         </div>
       </ul>
     </nav>
-    <div class="albums__wrapper">
-      <div class="album__card">
-        <div class="album__card--content">
-          <h2>Best Album</h2>
-          <img src="" alt="Album Cover" />
-          <h3>by album.artist</h3>
-          <ul>
-            <li>album.year</li>
-            <li>album.genre</li>
-            <li>album.rating</li>
-          </ul>
-        </div>
+    <div id="albums">
+      <div class="header">
+        <h1>All Albums</h1>
+        <select id="filter" onchange="filterAlbums(event)">
+          <option value="" selected>Sort</option>
+          <option value="LOW_TO_HIGH">Rating, Low to High</option>
+          <option value="HIGH_TO_LOW">Rating, High to Low</option>
+          <option value="ARTIST">by Artist</option>
+          <option value="YEAR">by Year</option>
+          <option value="GENRE">by Genre</option>
+        </select>
       </div>
-      <div class="album__card">
-        <div class="album__card--content">
-          <h2>Best Album</h2>
-          <img src="" alt="Album Cover" />
-          <h3>by album.artist</h3>
-          <ul>
-            <li>album.year</li>
-            <li>album.genre</li>
-            <li>album.rating</li>
-          </ul>
-        </div>
-      </div>
-      <div class="album__card">
-        <div class="album__card--content">
-          <h2>Best Album</h2>
-          <img src="" alt="Album Cover" />
-          <h3>by album.artist</h3>
-          <ul>
-            <li>album.year</li>
-            <li>album.genre</li>
-            <li>album.rating</li>
-          </ul>
+      <div class="all__albums">
+        <i class="fa-solid fa-spinner loading__spinner"></i>
+        <div class="albums__wrapper">
+          <!-- <div class="album__card">
+            <div class="album__card--content">
+              <h2>Kid A</h2>
+              <img src="./assets/Kid A.jpg" alt="Album Cover" />
+              <h3>Radiohead</h3>
+              <ul class="album__card--info">
+                <li class="card__info--item"><i>(2000)</i></li>
+                <li class="card__info--item">Art Rock, Electronic</li>
+                <li class="card__info--item card__info--genre">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </li>
+              </ul>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
     <div class="footer">
-      <button onclick="quoteAlert();">Get A Quote!</button>
-      <button onclick="removeLastCard();">Remove A Card!</button>
+      <button onclick="lyricAlert();">Get A Random Lyric!</button>
     </div>
   </body>
 </html>

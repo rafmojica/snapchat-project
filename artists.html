@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Artists</title>
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/270/270183.png"
+    />
+    <meta
+      name="description"
+      content="A catalog of critically acclaimed music"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/fd56eb3ace.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer type="module" src="artists.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <ul class="navbar__items">
+        <div class="navbar__item--left">
+          <img
+            class="logo"
+            src="https://cdn-icons-png.flaticon.com/512/270/270183.png"
+            alt="Logo"
+          />
+          <li class="navbar__item--title">Groove Gallery</li>
+        </div>
+        <div class="navbar__item--right">
+          <a href="index.html"><li class="navbar__item">Albums</li></a>
+          <li class="navbar__item">Artists</li>
+        </div>
+      </ul>
+    </nav>
+    <div class="header">
+      <h1>All Artists</h1>
+      <select id="filter" onchange="filterArtists(event)">
+        <option value="" selected>Sort</option>
+        <option value="A_TO_Z">Alphabetically (A-Z)</option>
+        <option value="Z_TO_A">Alphabetically (Z-A)</option>
+      </select>
+    </div>
+    <div class="all__artists">
+      <i class="fa-solid fa-spinner loading__spinner"></i>
+      <div class="artists__wrapper">
+        <ul class="artists__list">
+          <!-- <li class="artists__item">Radiohead</li>
+          <li class="artists__item">Radiohead</li>
+          <li class="artists__item">Radiohead</li>
+          <li class="artists__item">Radiohead</li>
+          <li class="artists__item">Radiohead</li> -->
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
