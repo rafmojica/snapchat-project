@@ -45,14 +45,19 @@ async function renderAlbums(filter) {
   } else if (filter === "YEAR") {
     albums.sort((a, b) => a.year - b.year);
   } else if (filter === "GENRE") {
-    albums.sort((a, b) => {
-      const genreA = Array.isArray(a.genre) ? a.genre.join(", ") : a.genre;
-      const genreB = Array.isArray(b.genre) ? b.genre.join(", ") : b.genre;
-  
-      return genreA.localeCompare(genreB);
+    // need to sort alphabetically because not all genres are located in the same index of each array
+    albums.forEach((album) => {
+      if (Array.isArray(album.genre)) {
+        album.genre.sort();
+      }
+    });
+
+    albums.sort((a, b) => { // checks if genre is an array, then puts them next to each other.
+      const genresA = Array.isArray(a.genre) ? a.genre.join(", ") : a.genre;
+      const genresB = Array.isArray(b.genre) ? b.genre.join(", ") : b.genre;
+      return genresA.localeCompare(genresB);
     });
   }
-  
 
   const albumsHtml = albums
     .map((album) => {
@@ -82,25 +87,27 @@ async function renderAlbums(filter) {
   albumsWrapper.innerHTML = albumsHtml;
 }
 
-document.getElementById('albumForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // prevent default form submission method
+document
+  .getElementById("albumForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // prevent default form submission method
 
-  const album = document.getElementById('album').value;
-  const artist = document.getElementById('artist').value;
-  const year = document.getElementById('year').value;
-  const genre = document.getElementById('genre').value.split(', '); // assuming genre is separated by comma
-  const rating = parseFloat(document.getElementById('rating').value); // convert string to float
-  const cover = document.getElementById('cover').value;
+    const album = document.getElementById("album").value;
+    const artist = document.getElementById("artist").value;
+    const year = document.getElementById("year").value;
+    const genre = document.getElementById("genre").value.split(", "); // assuming genre is separated by comma
+    const rating = parseFloat(document.getElementById("rating").value); // convert string to float
+    const cover = document.getElementById("cover").value;
 
-  // new album object for dataset
-  const newAlbum = { album, artist, year, genre, rating, cover };
+    // new album object for dataset
+    const newAlbum = { album, artist, year, genre, rating, cover };
 
-  // call function to add new album object to dataset
-  addAlbumToPage(newAlbum);
+    // call function to add new album object to dataset
+    addAlbumToPage(newAlbum);
 
-  // clears form
-  this.reset();
-});
+    // clears form
+    this.reset();
+  });
 
 function addAlbumToPage(newAlbum) {
   // add new album to dataset
