@@ -22,7 +22,8 @@ a {
 
 .header {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap; /* This allows items to wrap to the next line */
+  justify-content: space-between; /* Spreads out the children */
   align-items: center;
   max-width: 800px;
   width: 100%;
@@ -117,7 +118,6 @@ ALBUMS
 
 .album__card--content {
   padding: 20px;
-  font-family: "Verdana";
   color: #777;
 }
 
@@ -221,6 +221,47 @@ ARTISTS
 CUSTOM
 
 */
+
+.search__box {
+  position: relative;
+}
+
+.input {
+  padding: 10px;
+  width: 48px;
+  height: 48px;
+  background: none;
+  border: 4px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.3);
+  outline: none;
+  transition: .5s;
+}
+
+.search__box:hover input {
+  width: 350px;
+  background: white;
+  border-radius: 10px;
+}
+
+.search__box i {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  top: 24px;
+  transform: translate(-50%,-50%);
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.3);
+  transition: .2s;
+}
+
+.search__box:hover i {
+  opacity: 0;
+  z-index: -1;
+}
 
 .custom__album {
   width: 100%;

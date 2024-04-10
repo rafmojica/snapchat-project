@@ -37,11 +37,19 @@
     </nav>
     <div class="header">
       <h1>All Artists</h1>
-      <input
-        type="text"
-        id="artistSearch"
-        placeholder="Search for an artist..."
-      />
+      <div class="search__box">
+        <form name="search" onsubmit="return false;">
+          <!-- disables enter key -->
+          <input
+            type="text"
+            class="input"
+            id="artistSearch"
+            name="txt"
+            onmouseout="this.value = ''; this.blur();"
+          />
+        </form>
+        <i class="fas fa-search"></i>
+      </div>
       <select id="filter" onchange="filterArtists(event)">
         <option value="" selected>Sort</option>
         <option value="A_TO_Z">Alphabetically (A-Z)</option>
