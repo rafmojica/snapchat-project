@@ -52,7 +52,7 @@ async function renderAlbums(filter) {
       }
     });
 
-    albums.sort((a, b) => {
+    albums.sort((a, b) => { // checks if genre is an array, then puts them next to each other.
       const genresA = Array.isArray(a.genre) ? a.genre.join(", ") : a.genre;
       const genresB = Array.isArray(b.genre) ? b.genre.join(", ") : b.genre;
       return genresA.localeCompare(genresB);
