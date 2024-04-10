@@ -38,6 +38,12 @@
     <div id="albums">
       <div class="header">
         <h1>All Albums</h1>
+        <div class="search__box">
+          <form name="search" onsubmit="return false;"> <!-- disables enter key -->
+              <input type="text" class="input" id="albumSearch" name="txt" onmouseout="this.value = ''; this.blur();" />
+          </form>
+          <i class="fas fa-search"></i>
+      </div>
         <select id="filter" onchange="filterAlbums(event)">
           <option value="" selected>Sort</option>
           <option value="LOW_TO_HIGH">Rating, Low to High</option>
