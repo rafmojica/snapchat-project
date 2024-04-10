@@ -25,7 +25,7 @@
 import { getAlbums } from "./data.js";
 let albums;
 
-async function renderAlbums(filter) {
+async function renderAlbums(filter, albumList = null) {
   const allAlbums = document.querySelector(".all__albums");
   const albumsWrapper = document.querySelector(".albums__wrapper");
 
@@ -35,6 +35,8 @@ async function renderAlbums(filter) {
     albums = await getAlbums();
   }
   allAlbums.classList.remove("loading"); // removes loading animation after dataset loads
+
+  const albumsToRender = albumList || albums; // if search query is not null, render that.
 
   if (filter === "LOW_TO_HIGH") {
     albums.sort((a, b) => a.rating - b.rating);
@@ -59,7 +61,7 @@ async function renderAlbums(filter) {
     });
   }
 
-  const albumsHtml = albums
+  const albumsHtml = albumsToRender
     .map((album) => {
       const albumGenre = Array.isArray(album.genre)
         ? album.genre.join(", ")
@@ -86,6 +88,18 @@ async function renderAlbums(filter) {
 
   albumsWrapper.innerHTML = albumsHtml;
 }
+
+document.getElementById('albumSearch').addEventListener('keyup', function(e) {
+  const searchQuery = e.target.value.toLowerCase(); // get search query
+
+  // filter albums based on search query
+  const filteredAlbums = albums.filter(album => {
+    return album.album.toLowerCase().includes(searchQuery);
+  });
+
+  // re-render albums, setting global albums to null.
+  renderAlbums(null, filteredAlbums);
+});
 
 document
   .getElementById("albumForm")
